@@ -23,7 +23,7 @@
 }
 
 
-#tile.hidden:hover {
+#tile:hover {
   background-color: #666;
 }
 

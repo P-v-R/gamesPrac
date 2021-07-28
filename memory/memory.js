@@ -1,4 +1,7 @@
+
+// import _ from 'lodash';
 const colors = [
+
   "red",
   "blue",
   "green",
@@ -12,6 +15,7 @@ const colors = [
 let selected = [];
 let score = 0;
 
+
 const gameBoard = document.getElementById("game-board")
 let scoreBoard = document.createElement('h1')
 scoreBoard.innerText = `${score}`
@@ -23,7 +27,8 @@ function updateScore(){
 
 
 function makeHTML() {
-  for (let color of colors) {
+  let shuffled = _.shuffle(colors)
+  for (let color of shuffled) {
     // make a new div for each color - set ID to tile and class to color
     let tile = document.createElement('div');
     tile.setAttribute('id', `tile`);
@@ -70,6 +75,7 @@ function checkMatch() {
 function resetSelected() {
   for (let div of selected) {
     div.style.backgroundColor = null;
+    div.classList.add(`hidden`);
     div.addEventListener('click', handleClick);
   }
   selected = [];
