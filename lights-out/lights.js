@@ -104,11 +104,13 @@ function changeLights(coords) {
 }
 
 function checkWin() {
+  
   const won = stateBoard.every(row => {
     row.every(cell => {
       cell === "off"})
     });
-  if(won){
+  
+    if(won){
     alert("winner")
   }
 }
