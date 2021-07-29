@@ -10,6 +10,14 @@ const colors = [
   "blue",
   "green",
   "pink",
+  "orange",
+  "orange",
+  // "black",
+  // "black",
+  // "purple",
+  // "purple",
+  // "yellow",
+  // "yellow"
 ];
 
 let selected = [];
