@@ -4,7 +4,7 @@ const boardSize = 5;
 
 
 let stateBoard = [];
-let difficulty = 24;
+let difficulty =25;
 
 let htmlBoard = document.getElementById("game-board");
 
@@ -105,9 +105,9 @@ function changeLights(coords) {
 
 function checkWin() {
   
-  const won = stateBoard.every(row => {
+  const won = stateBoard.forEach(row => {
     row.every(cell => {
-      cell === "off"})
+      cell === "off" || undefined})
     });
   
     if(won){
