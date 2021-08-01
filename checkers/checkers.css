@@ -3,6 +3,7 @@
   height:70px;
   border: 1px solid black;
 }
+
 .cell.black{
   width: 70px;
   height:70px;
@@ -10,3 +11,18 @@
   background-color: black ;
 }
 
+.piece.blue {
+  width: 70px;
+  height:70px;
+  border: 1px solid black;
+  background-color: navy;
+  border-radius: 50%;
+}
+
+.piece.red {
+  width: 70px;
+  height:70px;
+  border: 1px solid black;
+  background-color: maroon;
+  border-radius: 50%;
+}

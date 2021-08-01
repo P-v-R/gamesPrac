@@ -4,6 +4,7 @@ const HEIGHT = 8;
 const WIDTH = 8;
 
 let board = [];
+let currPiece = []; 
 
 let htmlBoard = document.getElementById('game-board');
 
@@ -24,7 +25,8 @@ function makeHtmlBoard() {
     let count= (y % 2);
     let row = document.createElement('tr');
     for (let x = 0; x < WIDTH; x++) {
-      let cell = document.createElement('td')
+      let cell = document.createElement('td');
+      cell.addEventListener('click', dropPiece)
       cell.classList.add('cell');
       cell.setAttribute('id', `${y}-${x}`);
       if(count % 2 === 0) {
@@ -37,15 +39,51 @@ function makeHtmlBoard() {
   }
 }
 
-function placeHead () {
-  
+function placePieces() {
+  let count=0;
+  for (let y = 0; y < HEIGHT; y++) {
+    for (let x = 0; x < WIDTH; x++) {
+      let tile = document.getElementById(`${y}-${x}`);
+      let piece = document.createElement('div');
+      piece.setAttribute('id', count);
+      piece.classList.add('piece');
+      piece.setAttribute('draggable', true);
+      if(count < 16) {
+        piece.classList.add('blue');
+        piece.addEventListener('click', movePiece)
+        count++;
+        tile.append(piece);
+      } else if (count >= 48) {
+        piece.classList.add('red');
+        piece.addEventListener('click', movePiece)
+        count++;
+        tile.append(piece);
+      } else {
+        count++;
+      }
+    }
+  }
 }
-function moveSnake() {
+
+
+function dropPiece(evt) {
+  let cell = document.getElementById(evt.target.id)
+  console.log(cell, "--", evt.target.id)
+  if(!currPiece[0]) return;
+  cell.append(currPiece[0])
+  currPiece = [];
+}
+
+function movePiece(evt) {
+  let piece = document.getElementById(evt.target.id);
+  if(!currPiece[0]) currPiece.push(piece);
+  console.log("moving piece", currPiece);
 
 }
 
 function newGame() {
   makeBoard();
+  placePieces()
 }
 
 
