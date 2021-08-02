@@ -1,0 +1,15 @@
+h3{
+  display: inline;
+}
+
+
+
+td.cell{
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.cell.mole {
+  background-color: brown;
+}
